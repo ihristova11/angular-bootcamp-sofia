@@ -1,0 +1,32 @@
+<!-- <app-todo-entity (add)="addHandler($event)"></app-todo-entity>
+<input type="radio" name="filter" [value]="null" [checked]="filterValue === null" (change)="changeFilter(null)" /> All
+<input type="radio" name="filter" [value]="true" [checked]="filterValue === true"
+  (change)="changeFilter(true)" />Completed
+<input type="radio" name="filter" [value]="false" [checked]="filterValue === false" (change)="changeFilter(false)" />Not
+completed
+<app-todo-list [todos]="todos | filter : filterValue" (remove)="deleteTodo($event)" (toggle)="toggleTodo($event)">
+</app-todo-list> -->
+
+<nav>
+  <a routerLink="list" routerLinkActive="active">List</a>
+  <a routerLink="add" routerLinkActive="active">Add todo</a>
+</nav>
+
+<router-outlet></router-outlet>
+<!-- <button (click)="show = !show">Show</button>
+<div *ngIf="show">show something</div> -->
+
+
+<form #registrationForm="ngForm">
+  <input #firstName="ngModel" name="firstName" ngModel required />
+  <div *ngIf="!firstName.valid && firstName.touched">Invalid fist name</div>
+  <button (click)="save(registrationForm)" [disabled]="registrationForm.invalid">Save</button>
+</form>
+
+<form [formGroup]="myForm">
+  <input formControlName="lastName" />
+  <div *ngIf="!myForm.controls['lastName'].valid && myForm.controls['lastName'].touched">Invalid last name</div>
+  <button (click)="save2()" [disabled]="myForm.invalid">Save</button>
+</form>
+
+<!-- REPO: https://github.com/IliaIdakiev/boot-camp-01 -->
